@@ -1,10 +1,143 @@
-.App {
-  text-align: center;
+
+.header{
+  background-image: url("./assets/images/pattern-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-
 .head-line-text{
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
-  text-align: center;
+  margin-top: 0;
+  color:white;
+}
+
+.input-field-conatiner{
+  display: flex;
+
+}
+.input-field{
+  width: 500px;
+  height: 50px;
+
+  
+
+  border: black 1px;
+
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.input-field:hover, .input-field:focus {
+  outline: none;
+}
+
+.btn{
+  background-color: black;
+  
+  padding: 19px;
+  font-size: 13px;
+
+  cursor: pointer;
+
+  border: 0;
+
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.info-container{
+  display: flex;
+  z-index: 1;
+
+  position: absolute;
+
+  top: 27%;
+  left: 50%;
+  transform: translate(-50%, 15%);
+
+  width: 70vw;
+
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+
+  border-radius: 10px;
+}
+
+.info-content{
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  margin-left: 2vw;
+  margin-right: 3vw;
+}
+.info-name{
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+
+  font-size: 12px;
+  color: darkgray;
+
+  letter-spacing: 3px;
+}
+.info-data{
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 3px;
+
+  font-size: 30px;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+  .info-container{
+    flex-direction: column;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+  .info-container{
+    top: 27%;
+    flex-direction: column;
+    width: 80vw;
+  }
+}
+
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) {
+  .info-container{
+    top: 27%;
+    width: 80vw;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 993px) {
+  .info-container{
+    width: 90vw;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .info-container{
+    top: 21%;
+    width: 70vw;
+  }
 }
