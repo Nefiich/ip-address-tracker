@@ -10,7 +10,6 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
 
-  const [data, setData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
   const [ip, setIp] = useState('N/A');
@@ -21,18 +20,14 @@ function App() {
   const [lat, setLat] = useState(50);
   const [lon, setLon] = useState(20);
 
-  const[center, setCenter] = useState({lat: 50, lon: 20})
-  const [zoom, setZoom] = useState(11);
-
   const [inputValue, setInputValue] = useState('');
 
   const loadApi = (code) => {
 
     if(isLoaded === false){
-      axios.get(`https://api.ipdata.co/?api-key=7afe571f55694f60451c68f16d8c90e779d7ddd72138123bb02e92a3`)
+      axios.get(`https://api.ipdata.co/?api-key=APIKEY`)
       .then(res => {
         console.log(res);
-        setData(res);
 
         setIp(res.data.ip);
         setLocation(res.data.country_name);
@@ -54,10 +49,9 @@ function App() {
     if(code === 1 && isLoaded === true && inputValue !== ''){
       console.log("Click: " + inputValue);
 
-      axios.get(`https://api.ipdata.co/${inputValue}?api-key=7afe571f55694f60451c68f16d8c90e779d7ddd72138123bb02e92a3`)
+      axios.get(`https://api.ipdata.co/${inputValue}?api-key=APIKEY`)
       .then(res => {
         console.log(res);
-        setData(res);
 
         setIp(res.data.ip);
         setLocation(res.data.country_name);
@@ -73,7 +67,7 @@ function App() {
   }
 
   useEffect(() => {
-    loadApi()
+    loadApi();
   }, [])
 
 
@@ -89,7 +83,7 @@ function App() {
   
 
 
-  const Marker = ({ text }) => <div><img src="./icon-location.svg" height='40px' width="30px"></img></div>;
+  const Marker = ({ text }) => <div><img alt="icon" src="./icon-location.svg" height='40px' width="30px"></img></div>;
 
   return (
     <div className="App">
@@ -100,36 +94,36 @@ function App() {
           <button className="btn" onClick={() => {loadApi(1)}}><FontAwesomeIcon icon={faChevronRight} color="white"/></button>
         </div>
       </div>
-      <div className="info-container">
+      <div className="info-container-fluid">
+        <div className="info-container">
 
-        <div className="info-content">
-          <h3 className="info-name">IP Address</h3>
-          <h2 className="info-data">{ip}</h2>
-        </div>
+          <div className="info-content">
+            <h3 className="info-name">IP Address</h3>
+            <h2 className="info-data">{ip}</h2>
+          </div>
 
-        <div className="info-content">
-          <h3 className="info-name">Location</h3>
-          <h2 className="info-data">{location}</h2>
-        </div>
+          <div className="info-content">
+            <h3 className="info-name">Location</h3>
+            <h2 className="info-data">{location}</h2>
+          </div>
 
-        <div className="info-content">
-          <h3 className="info-name">Timezone</h3>
-          <h2 className="info-data">{timezone}</h2>
+          <div className="info-content">
+            <h3 className="info-name">Timezone</h3>
+            <h2 className="info-data">{timezone}</h2>
+          </div>
+          <div className="info-content">
+            <h3 className="info-name">ISP</h3>
+            <h2 className="info-data">{isp}</h2>
+          </div>
         </div>
-        <div className="bright"></div>
-        <div className="info-content">
-          <h3 className="info-name">ISP</h3>
-          <h2 className="info-data">{isp}</h2>
-        </div>
-
       </div>
 
-      <div style={{ height: '70vh', width: '100%', backgroundColor: 'gray', zIndex:'-1' }}>
+      <div style={{ height: '75vh', width: '100%', backgroundColor: 'gray', zIndex:'-1' }}>
         
         <GoogleMapReact
-            bootstrapURLKeys={{ key: 'AIzaSyBCC4_sf9eHz8rviGuNU0nrvMguo9kuK0E' }}
+            bootstrapURLKeys={{ key: 'key' }}
             center={defaultProps.center}
-            zoom={zoom}
+            zoom={11}
           >
             <Marker
               lat={lat}
