@@ -121,7 +121,8 @@ body{
   }
   .info-container{
     flex-direction: column;
-    height: 50vh;
+    height: fit-content;
+    margin-top: 10px;
     width: 80vw;
 
     top: 45%;

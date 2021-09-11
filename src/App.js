@@ -25,7 +25,7 @@ function App() {
   const loadApi = (code) => {
 
     if(isLoaded === false){
-      axios.get(`https://api.ipdata.co/?api-key=APIKEY`)
+      axios.get(`https://api.ipdata.co/?api-key=apikey`)
       .then(res => {
         console.log(res);
 
@@ -49,7 +49,7 @@ function App() {
     if(code === 1 && isLoaded === true && inputValue !== ''){
       console.log("Click: " + inputValue);
 
-      axios.get(`https://api.ipdata.co/${inputValue}?api-key=APIKEY`)
+      axios.get(`https://api.ipdata.co/${inputValue}?api-key=apikey`)
       .then(res => {
         console.log(res);
 
@@ -121,7 +121,7 @@ function App() {
       <div style={{ height: '75vh', width: '100%', backgroundColor: 'gray', zIndex:'-1' }}>
         
         <GoogleMapReact
-            bootstrapURLKeys={{ key: 'key' }}
+            bootstrapURLKeys={{ key: '' }}
             center={defaultProps.center}
             zoom={11}
           >
