@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import {isMobile} from 'react-device-detect';
 import axios from 'axios';
 import './App.css';
 import GoogleMapReact from 'google-map-react';
@@ -21,6 +22,8 @@ function App() {
   const [lon, setLon] = useState(20);
 
   const [inputValue, setInputValue] = useState('');
+
+  const [headerHeight, setHeaderHeight] = useState({height: '40vh'});
 
   const loadApi = (code) => {
 
@@ -89,11 +92,11 @@ function App() {
 
   return (
     <div className="App">
-      <div className="header">
+      <div className="header" style={headerHeight}>
         <h1 className="head-line-text">IP Adress Tracker</h1>
         <div className="input-field-conatiner">
-          <input className="input-field" type="email" placeholder="Search for any IP adress or domain" value={inputValue} onChange={e => setInputValue(e.target.value)}/>
-          <button className="btn" onClick={() => {loadApi(1)}}><FontAwesomeIcon icon={faChevronRight} color="white"/></button>
+          <input className="input-field" onClick={() => {isMobile ? setHeaderHeight({height: '50vh'}) : console.log("not mobile")}} type="email" placeholder="Search for any IP adress or domain" value={inputValue} onChange={e => setInputValue(e.target.value)}/>
+          <button className="btn" onClick={() => {loadApi(1); setHeaderHeight({height: '40vh'})}}><FontAwesomeIcon icon={faChevronRight} color="white"/></button>
         </div>
       </div>
       <div className="info-container-fluid">
