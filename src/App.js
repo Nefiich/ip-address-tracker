@@ -25,14 +25,19 @@ function App() {
   const loadApi = (code) => {
 
     if(isLoaded === false){
-      axios.get(`https://api.ipdata.co/?api-key=apikey`)
+      axios.get(`https://api.ipdata.co/?api-key=7afe571f55694f60451c68f16d8c90e779d7ddd72138123bb02e92a3`)
       .then(res => {
         console.log(res);
 
         setIp(res.data.ip);
         setLocation(res.data.country_name);
         setTimezone(res.data.time_zone.abbr);
-        setIsp(res.data.asn.name);
+        if(res.data.asn === null){
+          setIsp('None')
+        }else{
+          console.log("Worked!")
+          setIsp(res.data.asn.name);
+        }
 
         setLat(res.data.latitude);
         setLon(res.data.longitude)
@@ -49,14 +54,18 @@ function App() {
     if(code === 1 && isLoaded === true && inputValue !== ''){
       console.log("Click: " + inputValue);
 
-      axios.get(`https://api.ipdata.co/${inputValue}?api-key=apikey`)
+      axios.get(`https://api.ipdata.co/${inputValue}?api-key=7afe571f55694f60451c68f16d8c90e779d7ddd72138123bb02e92a3`)
       .then(res => {
         console.log(res);
 
         setIp(res.data.ip);
         setLocation(res.data.country_name);
         setTimezone(res.data.time_zone.abbr);
-        setIsp(res.data.asn.name);
+        if(res.data.asn === null){
+          setIsp('None')
+        }else{
+          setIsp(res.data.asn.name);
+        }
 
         setLat(res.data.latitude);
         setLon(res.data.longitude)
@@ -121,7 +130,7 @@ function App() {
       <div style={{ height: '75vh', width: '100%', backgroundColor: 'gray', zIndex:'-1' }}>
         
         <GoogleMapReact
-            bootstrapURLKeys={{ key: '' }}
+            bootstrapURLKeys={{ key: 'AIzaSyBCC4_sf9eHz8rviGuNU0nrvMguo9kuK0E' }}
             center={defaultProps.center}
             zoom={11}
           >
