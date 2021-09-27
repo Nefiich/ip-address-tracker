@@ -92,7 +92,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="header" style={headerHeight}>
+      <div className="header" style={headerHeight} onClick={setHeaderHeight({height: '40vh'})}>
         <h1 className="head-line-text">IP Adress Tracker</h1>
         <div className="input-field-conatiner">
           <input className="input-field" onClick={() => {isMobile ? setHeaderHeight({height: '50vh'}) : console.log("not mobile")}} type="email" placeholder="Search for any IP adress or domain" value={inputValue} onChange={e => setInputValue(e.target.value)}/>
