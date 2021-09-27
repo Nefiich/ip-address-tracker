@@ -27,7 +27,6 @@ function App() {
     if(isLoaded === false){
       axios.get(`https://api.ipdata.co/?api-key=7afe571f55694f60451c68f16d8c90e779d7ddd72138123bb02e92a3`)
       .then(res => {
-        console.log(res);
 
         setIp(res.data.ip);
         setLocation(res.data.country_name);
@@ -35,7 +34,6 @@ function App() {
         if(res.data.asn === null){
           setIsp('None')
         }else{
-          console.log("Worked!")
           setIsp(res.data.asn.name);
         }
 
@@ -44,19 +42,14 @@ function App() {
         
         setIsLoaded(true);
       });
-      setIsLoaded(true)
-      console.log("test...");
     }else{
-      console.log("Already loaded on start!")
     }
     
 
     if(code === 1 && isLoaded === true && inputValue !== ''){
-      console.log("Click: " + inputValue);
 
       axios.get(`https://api.ipdata.co/${inputValue}?api-key=7afe571f55694f60451c68f16d8c90e779d7ddd72138123bb02e92a3`)
       .then(res => {
-        console.log(res);
 
         setIp(res.data.ip);
         setLocation(res.data.country_name);
